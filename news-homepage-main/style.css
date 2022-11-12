@@ -26,7 +26,17 @@ p{
 }
 h3{
     margin: 0;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
     margin-bottom: 10px;
+}
+h2{
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+h2:hover{
+    color: hsl(35, 77%, 62%);
+
 }
 a{
     text-decoration: none;
@@ -36,6 +46,16 @@ li{
     padding: 20px;
     color: hsl(233, 8%, 79%);
     font-size: 1.2rem;
+}
+li a{
+    color: hsl(233, 8%, 79%);
+    transition: all 0.1s ease-in-out;
+}
+li a:hover{
+    color: hsl(5, 85%, 63%);
+}
+h3:hover{
+    color: hsl(5, 85%, 63%);
 }
 li:nth-child(5){
     padding-right: 0;
@@ -92,9 +112,7 @@ nav{
     flex-direction: column;
     justify-content: center;
 }
-.right-container article:hover{
-    background-color: hsl(240, 80%, 10%);
-}
+
 .right-container article h1{
     font-weight: bold;
     color: hsl(35, 77%, 62%);
@@ -127,8 +145,12 @@ nav{
     font-weight: bold;
     letter-spacing: 0.7rem;
     text-transform: uppercase;
- 
+ transition: all 0.2s ease-in-out;
     padding: 20px;
+}
+.btn-article a:hover{
+    background-color: hsl(240, 100%, 5%);
+    color: white;
 }
 
 .wrapper{
@@ -186,3 +208,49 @@ nav{
     width: 25%;
   
 }
+
+
+@media only screen and (max-width: 1000px) {
+   .bottom-container{
+    flex-wrap: wrap;
+   }
+   .bottom-container article{
+    width: 100%;
+    margin-top: 40px;
+   }
+   .bottom-container article:nth-child(2) img{
+    margin-left: 0px;
+  }
+  .bottom-container article:nth-child(3){
+   
+    justify-content: flex-start;
+}
+  }
+
+
+  @media only screen and (max-width: 700px) {
+  .top-section-container{
+    flex-direction: column;
+    padding: 15px;
+    width: 100%;
+  }
+  .wrapper{
+    flex-direction: column;
+    width: 100%;
+  }
+  .right-container{
+   width: 100%;
+  }
+  .btn-article{
+    width: 100%;
+  }
+  .headerContainer{
+    width: 100%;
+  }
+  .banner{
+    width: 100%;
+  }
+  .left-container{
+    width: 100%;
+  }
+   }
