@@ -186,3 +186,12 @@ nav{
     width: 25%;
   
 }
+@media only screen and (max-width: 1000px) {
+    .top-section-container{
+        flex-direction: column;
+    }
+    .left-container{
+        flex-direction: column;
+        width: 100%;
+    }
+  }
