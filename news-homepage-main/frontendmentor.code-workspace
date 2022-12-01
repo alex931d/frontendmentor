@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../Desktop/frontendmentor/order-summary-component-main"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5502
+	}
+}
