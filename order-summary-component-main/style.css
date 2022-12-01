@@ -14,6 +14,7 @@ body{
 h1{
     font-size: 1.5rem;
     color:  hsl(223, 47%, 23%);
+    margin-bottom: 10px;
 }
 h3{
     color:  hsl(223, 47%, 23%);
@@ -133,7 +134,7 @@ main{
     background-color: hsl(245, 75%, 52%);
     border-radius: 15px;
     color: white;
-    margin-top: 15px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,6 +150,7 @@ main{
 }
 .cancle{
     font-size: 1.4rem;
+    margin-top: 10px;
     font-weight: 700;
     color: hsl(224, 23%, 55%);
     transition: all 0.3s ease-in-out;
