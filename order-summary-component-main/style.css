@@ -87,6 +87,7 @@ main{
     justify-content: space-between;
     padding: 10px;
     align-items: center;
+    margin-top: 10px;
 }
 .card-left-container{
     display: flex;
