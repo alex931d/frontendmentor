@@ -256,7 +256,7 @@ align-items: center;
     }
 
 }
-@media (max-width: 1300px){
+@media (min-width: 1300px){
     .graf-wrapper{
         gap: 5px;
     }
