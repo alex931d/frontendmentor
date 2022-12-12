@@ -21,6 +21,10 @@ ul{
 }
 h1{
     font-size: 1.5rem;
+    color: var(--Dark-brown);
+}
+h4{
+    color: var(--Dark-brown);
 }
 
 li{
@@ -92,6 +96,7 @@ h3{
 h2{
     font-size: 3rem;
     font-weight: 700;
+    color: var(--Dark-brown);
 }
 span{
     color: var(--Medium-brown);
