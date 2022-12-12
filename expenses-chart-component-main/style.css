@@ -256,12 +256,14 @@ align-items: center;
     }
 
 }
+@media (max-width: 1300px){
+    .card-wrapper{
+        gap: 5px;
+    }
+}
 @media (max-width: 1000px){
     h3{
         font-size: 1rem;
-    }
-    .card-wrapper{
-        gap: 5px;
     }
     h2{
         font-size: 2rem;
