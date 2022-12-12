@@ -110,6 +110,7 @@ span{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: var(--Cream);
     align-items: center;
     gap: 20px;
 }
