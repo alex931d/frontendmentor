@@ -257,7 +257,7 @@ align-items: center;
 
 }
 @media (max-width: 1300px){
-    .card-wrapper{
+    .graf-wrapper{
         gap: 5px;
     }
 }
