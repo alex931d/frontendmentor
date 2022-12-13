@@ -13,6 +13,7 @@ circle.forEach(tab => {
        if (e.target.classList.contains('circle') || e.target.matches('span')) {
           this.classList.add('active'); 
            point = e.target;
+           rotate();
        }
       
         
@@ -41,6 +42,24 @@ btn.addEventListener('click',function() {
 })
 
     //-------------- gsap animation ---------------
+    function rotate(){
+        let tl = gsap.timeline({
+            defaults: {
+                duration: 1
+        
+            }
+        })
+        gsap.set(".active",{
+       rotate: 0
+    
+        })
+        tl.to(".active",{
+            duration: 1.3,
+            ease: "circ.out",
+            rotate: 360
+        })
+        
+    }
 function animation() {
 	let tl = gsap.timeline({
     defaults: {
