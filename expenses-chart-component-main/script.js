@@ -56,7 +56,7 @@ btn.addEventListener('click',function() {
         tl.to(".active",{
             ease: "back.out(1.7)",
             duration: 0.5,
-            rotate: 360
+            rotate: 140
         })
         
     }
