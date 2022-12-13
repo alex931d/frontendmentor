@@ -54,7 +54,6 @@ btn.addEventListener('click',function() {
     
         })
         tl.to(".active",{
-            duration: 0.3,
             ease: "circ.out",
             rotate: 360
         })
