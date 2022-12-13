@@ -64,7 +64,7 @@ img{
 
 }
 .card-container{
-height:40%;
+height: auto;
 max-width: 500px;
 background-color: var(--Dark-Blue);
 padding: 40px;
