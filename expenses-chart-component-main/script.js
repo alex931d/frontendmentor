@@ -10,9 +10,8 @@ circle.forEach(tab => {
             element.classList.remove('active');
             
         });
-     
-       if (e.target.classList.contains('circle')) {
-          e.target.classList.add('active'); 
+       if (e.target.classList.contains('circle') || e.target.matches('span')) {
+          this.classList.add('active'); 
            point = e.target;
        }
       
@@ -28,6 +27,10 @@ btn.addEventListener('click',function() {
         document.querySelector('.selection span').innerHTML = "You selected" +  " 0 " + "out of 5";
     }
     else if(point != null){
+        if (point.matches('span')) {
+            document.querySelector('.selection span').innerHTML = "You selected" + " "+point.innerHTML+" " + "out of 5";
+        }
+        else
             document.querySelector('.selection span').innerHTML = "You selected" + point.innerHTML + "out of 5";
 
     }
