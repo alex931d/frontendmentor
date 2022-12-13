@@ -10,9 +10,10 @@ circle.forEach(tab => {
             element.classList.remove('active');
             
         });
-       point = e.target;
-       if (e.target.classList.contains('.circle')) {
-          e.target.classList.add('active');
+     
+       if (e.target.classList.contains('circle')) {
+          e.target.classList.add('active'); 
+           point = e.target;
        }
       
         
