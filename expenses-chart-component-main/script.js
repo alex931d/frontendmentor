@@ -24,10 +24,10 @@ btn.addEventListener('click',function() {
     document.querySelector('.first').style.display = "none";
     document.querySelector('.finish').style.display = "block";
     if (point == null) {
-        document.querySelector('.selection span').innerHTML = "You selected" +  " 0 " + "out of 5"
+        document.querySelector('.selection span').innerHTML = "You selected" +  " 0 " + "out of 5";
     }
     else if(point != null){
-            document.querySelector('.selection span').innerHTML = "You selected" + point.innerHTML + "out of 5"
+            document.querySelector('.selection span').innerHTML = "You selected" + point.innerHTML + "out of 5";
 
     }
  
