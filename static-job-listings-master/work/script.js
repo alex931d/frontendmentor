@@ -1,46 +1,31 @@
 const wrapper = document.querySelector('.card-wrapper');
 const clearBtn = document.querySelector('.clear');
-let elements = {
-    div1: "card",
-    div2: "centerlized",
-    div3: "left-card-container",
-    div4: "right-card-container",
-    img: "logo",
-    div5: "company-content",
-    div6: "top-card-container",
-    span1: "company",
-    div7: "middle-card-container",
-    a: "position",
-    div8: "bottom-card-container",
-    span2: "postedAt",
-    span3: "contract",
-    span4: "location",
-    div9: "job-tag",
-    div10: "job-tag-inner",
-    span5: "role",
-    span6: "languages",
 
-
-  };
   let selectedTags = [];
   let tags = {
         div: "tag-container",
         span: "",
         text: "",
   }
-  const propertyNames = Object.keys(elements);
-  const propertyValues = Object.values(elements);
 
-function checkArray(index) {
+
+  function singleAnim(el) {
+    let tl = gsap.timeline({
+      defaults: {
+          duration: 1
   
-    if (index == 0) {
-        return true;
-    }
-    else{
-        return(selectedTags.includes('Frontend') || selectedTags.includes('Fullstack'));
-        
-    }
-}
+      }
+  })
+  gsap.set(`.${el}`,{
+    scale: 0.9
+  })
+  tl.to(`.${el}`,{
+      duration: 0.5,
+      ease: `back.out(1.0)`,
+      scale: 1
+  })
+  }
+
 // gsap animation stagger
 function animation(element,time) {
     gsap.set(`${element}`, {
@@ -61,17 +46,42 @@ function animation(element,time) {
     TL.to(`${element}`,{})
 }
 
+
+function getLastElement() {
+  const last = Array.from(
+    document.querySelectorAll('.tag')
+  ).pop();  
+  return last.className.slice(7,10);
+
+}
+
 clearBtn.addEventListener('click',function() {
  selectedTags.splice(0,selectedTags.length);
- const navbar = document.querySelector('left-container-navbar');
  const tag = document.querySelectorAll('.tag');
- 
+ const cards = document.querySelectorAll('.card');
  for (let index = 0; index < tag.length; index++) {
     tag[index].remove();
 
    }
-
+cards.forEach(element => {
+  element.remove();
+  makeElements(json);
 });
+});
+function checkArray(array,el,event) {
+  el.classList.toggle('active');
+    const btns = document.querySelectorAll('job-tag');
+  for (let index = 0; index < btns.length; index++) {
+      if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
+        console.log("hej");
+      }
+  }
+
+
+}
+
+
+
 
 fetch('./data.json')
 .then((response) => response.json())
@@ -195,7 +205,9 @@ for (let index = 0; index < json.length; index++) {
     }
 
 jobTag.addEventListener('click',function(e) {
-    // selectedTags.every(checkArray);
+
+   const tag = document.createElement('div');
+   
     const textarea = document.querySelector('.job-tag-inner span');
     jobTag.classList.toggle('active');
     if (jobTag.classList.contains('active')) {
@@ -207,9 +219,8 @@ jobTag.addEventListener('click',function(e) {
         jobTagInner.style.backgroundColor = "hsl(180, 52%, 96%)"
         textarea.style.color = "hsl(180, 29%, 50%)";
     }
-    // console.log(checkArray());
     const nav = document.querySelector('.left-container-navbar');
-    const tag = document.createElement('div');
+
 
     const leftTag = document.createElement('div');  
       tag.appendChild(leftTag);
@@ -223,7 +234,7 @@ jobTag.addEventListener('click',function(e) {
     span.innerText = e.target.innerText;
     selectedTags.push(e.target.innerText);
    
-
+ checkArray(selectedTags,tag,e);
 
 
 
@@ -233,7 +244,7 @@ jobTag.addEventListener('click',function(e) {
     nav.appendChild(tag);
     tag.classList.add('tag');
     console.log(selectedTags);
-    animation('.tag',1.0);
+    singleAnim(`${getLastElement()}`,1.0);
 });
     
 }
