@@ -6,6 +6,13 @@
     --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
     --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
 }
+/*support classes */
+.active{
+    background-color: var(--Desaturated-Dark-Cyan);
+}
+.active ~ span{
+    color: white;
+}
 :where(body){
     margin: 0;
     padding: 0;
@@ -61,6 +68,14 @@ nav{
     align-items: center;
     width: 93%;
     height: 100%;
+}
+.clear{
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+.clear:hover{
+    text-decoration: underline;
+
 }
 .left-container-navbar{
     width: 50%;
@@ -154,6 +169,13 @@ main{
     gap: 20px;
     justify-content: flex-start;
 }
+.left-card-container img{
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+.left-card-container img:hover{
+    transform: translateY(-5px);
+}
 .company-content{
     display: flex;
     flex-direction: column;
@@ -175,6 +197,7 @@ main{
     color: var(--Desaturated-Dark-Cyan);
     font-size: 1.4rem;
     font-weight: bold;
+    cursor: pointer;
 }
 .tag-container{
     display: flex;

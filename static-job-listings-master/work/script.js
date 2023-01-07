@@ -55,6 +55,9 @@ function getLastElement() {
 
 }
 
+
+
+
 clearBtn.addEventListener('click',function() {
  selectedTags.splice(0,selectedTags.length);
  const tag = document.querySelectorAll('.tag');
@@ -204,12 +207,22 @@ for (let index = 0; index < json.length; index++) {
         roundedTagFeatured.appendChild(featured);
     }
 
-jobTag.addEventListener('click',function(e) {
 
+    
+}
+animation('.card',1.7)
+ 
+}); 
+
+
+console.log(document.querySelectorAll('.job-tag').length);
+document.querySelectorAll('job-tag').forEach(element => {
+  element.addEventListener('click',function(e) {
+   console.log('hej');
    const tag = document.createElement('div');
-   
+  
     const textarea = document.querySelector('.job-tag-inner span');
-    jobTag.classList.toggle('active');
+    e.classList.toggle('active');
     if (jobTag.classList.contains('active')) {
 
         jobTagInner.style.backgroundColor = "hsl(180, 29%, 50%)";
@@ -245,10 +258,6 @@ jobTag.addEventListener('click',function(e) {
     tag.classList.add('tag');
     console.log(selectedTags);
     singleAnim(`${getLastElement()}`,1.0);
+  
+  });
 });
-    
-}
-animation('.card',1.7)
- 
-}); 
-
