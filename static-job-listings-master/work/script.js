@@ -19,7 +19,7 @@ const clearBtn = document.querySelector('.clear');
     },
     scale: 1.05, duration: 0.5
   });
-
+// navbar sticky
   window.onscroll = function() {scroll()};
 
   const navbar = document.querySelector("nav");
@@ -72,7 +72,7 @@ function animation(element,time) {
     TL.to(`${element}`,{})
 }
 
-
+// get last element and then slice and return it
 function getLastElement() {
   const last = Array.from(
     document.querySelectorAll('.tag')
@@ -83,6 +83,7 @@ function getLastElement() {
 
 
 
+// clear btn logic
 
 clearBtn.addEventListener('click',function() {
  selectedTags.splice(0,selectedTags.length);
@@ -97,6 +98,8 @@ cards.forEach(element => {
   makeElements(json);
 });
 });
+
+// check array
 function checkArray(array,el,event) {
   el.classList.toggle('active');
     const btns = document.querySelectorAll('job-tag');
@@ -109,11 +112,24 @@ function checkArray(array,el,event) {
 
 }
 
+// handle fetch errors
+function handleErrors(response) {
+  if (!response.ok) {  
+     const h1 = document.createElement('h1');
+     wrapper.appendChild(h1);
+      h1.innerHTML = response.statusText;
+      h1.classList.add('error');
+      throw Error(response.statusText);
+    
+  }
+  return response;
+}
 
-
-
+// fetch and then run make elements function
 fetch('./data.json')
+.then(handleErrors)
 .then((response) => response.json())
+
 .then(function makeElements(json) {
     
 
