@@ -26,7 +26,7 @@ const clearBtn = document.querySelector('.clear');
   const sticky = navbar.offsetTop;
   
   function scroll() {
-    if (window.pageYOffset >= sticky) {
+    if (window.pageYOffset >= sticky && selectedTags.length > 0) {
       navbar.classList.add("sticky")
     } else {
       navbar.classList.remove("sticky");
@@ -105,7 +105,7 @@ function checkArray(array,el,event) {
     const btns = document.querySelectorAll('job-tag');
   for (let index = 0; index < btns.length; index++) {
       if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
-        console.log("hej");
+        console.log("text");
       }
   }
 
@@ -228,7 +228,7 @@ for (let index = 0; index < json.length; index++) {
 
     
  }
- 
+
 
     if (json[index].new == true) { 
           const roundedTagNew = document.createElement('div');
@@ -252,28 +252,16 @@ for (let index = 0; index < json.length; index++) {
 
     
 }
-animation('.card',1.7)
- 
-}); 
-
-
-console.log(document.querySelectorAll('.job-tag').length);
-document.querySelectorAll('job-tag').forEach(element => {
+animation('.card',1.7);
+const jobtag = document.querySelectorAll('.job-tag');
+jobtag.forEach(element => {
   element.addEventListener('click',function(e) {
    console.log('hej');
    const tag = document.createElement('div');
   
     const textarea = document.querySelector('.job-tag-inner span');
-    e.classList.toggle('active');
-    if (jobTag.classList.contains('active')) {
+    element.classList.toggle('active');
 
-        jobTagInner.style.backgroundColor = "hsl(180, 29%, 50%)";
-        textarea.style.color = "hsl(180, 52%, 96%)";
-    }
-    else{
-        jobTagInner.style.backgroundColor = "hsl(180, 52%, 96%)"
-        textarea.style.color = "hsl(180, 29%, 50%)";
-    }
     const nav = document.querySelector('.left-container-navbar');
 
 
@@ -303,3 +291,8 @@ document.querySelectorAll('job-tag').forEach(element => {
   
   });
 });
+
+}); 
+
+
+

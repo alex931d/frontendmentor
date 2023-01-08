@@ -8,11 +8,13 @@
     --Small-Text: font-size: 1rem;
 }
 /*support classes */
-.active{
-    background-color: var(--Desaturated-Dark-Cyan);
+.active .job-tag-inner{
+    background-color: var(--Desaturated-Dark-Cyan) !important;
 }
-.active ~ span{
+.active .job-tag-inner span{
     color: white;
+}
+.checked{
 }
 .sticky {
     position: fixed;
@@ -77,6 +79,9 @@ nav{
     width: 93%;
     height: 100%;
 }
+nav .centerlized{
+    padding: 10px;
+}
 .clear{
     text-decoration: none;
     transition: all 0.3s ease-in-out;
@@ -86,16 +91,16 @@ nav{
 
 }
 .left-container-navbar{
-    width: 50%;
+    width: 80%;
     height: 100%;
-    gap: 5px;
+    gap: 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
 .tag{
-    width: 160px;
+    width: auto;
     height: 40px;
     display: flex;
    background-color: transparent;
@@ -118,7 +123,7 @@ nav{
     font-weight: bold;
 }
 .remove-btn{
-    width: 25%;
+    width: 35px;
     height: 100%;
     background-color: var(--Desaturated-Dark-Cyan);
     display: flex;
@@ -301,7 +306,7 @@ main{
 
 /* mobile responsive */
 @media only screen and (width <= 700px) {
-.centerlized{
+.card .centerlized{
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
