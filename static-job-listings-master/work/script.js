@@ -9,6 +9,21 @@ const clearBtn = document.querySelector('.clear');
   }
 
 
+  gsap.from(".banner-image",{
+    scrollTrigger: {
+      trigger: "main",
+      start: "top 50%",
+      end: "center 50%",
+      markers: true,
+      scrub: 1
+    },
+    scale: 0, duration: 1 
+  });
+
+
+
+
+
   function singleAnim(el) {
     let tl = gsap.timeline({
       defaults: {
