@@ -9,18 +9,29 @@ const clearBtn = document.querySelector('.clear');
   }
 
 
-  gsap.from(".banner-image",{
+  gsap.from("nav",{
     scrollTrigger: {
       trigger: "main",
-      start: "top 50%",
-      end: "center 50%",
-      markers: true,
+      start: "top 10%",
+      end: "top 20%",
+      markers: false,
       scrub: 1
     },
-    scale: 0, duration: 1 
+    scale: 1.05, duration: 0.5
   });
 
+  window.onscroll = function() {scroll()};
 
+  const navbar = document.querySelector("nav");
+  const sticky = navbar.offsetTop;
+  
+  function scroll() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
 
 
 

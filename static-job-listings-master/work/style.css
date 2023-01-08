@@ -14,6 +14,13 @@
 .active ~ span{
     color: white;
 }
+.sticky {
+    position: fixed;
+    top: 0.5%;
+    left: calc(50% - 1181.17px / 2);
+    width: 95%;
+    z-index: 999;
+}
 :where(body){
     margin: 0;
     padding: 0;
