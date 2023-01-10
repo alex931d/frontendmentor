@@ -100,14 +100,23 @@ cards.forEach(element => {
 });
 
 // check array
-function checkArray(array,el,event) {
+function checkArray(array,el,event) { 
+    console.log(event.target.innerText);
   el.classList.toggle('active');
-    const btns = document.querySelectorAll('job-tag');
-  for (let index = 0; index < btns.length; index++) {
-      if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
-        console.log("text");
-      }
-  }
+
+    const btns = document.querySelectorAll('.job-tag'); 
+    for (let index = 0; index < array.length; index++) {
+   if (array[index].includes(`${event.target.innerText}`,0) == true) {
+     return true;
+    }
+    return false;
+      
+    }
+  // for (let index = 0; index < btns.length; index++) {
+  //     if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
+  //       console.log("text");
+  //     }
+  // }
 
 
 }
@@ -256,8 +265,8 @@ animation('.card',1.7);
 const jobtag = document.querySelectorAll('.job-tag');
 jobtag.forEach(element => {
   element.addEventListener('click',function(e) {
-   console.log('hej');
-   const tag = document.createElement('div');
+    if (!element.classList.contains('active')) {
+      const tag = document.createElement('div');
   
     const textarea = document.querySelector('.job-tag-inner span');
     element.classList.toggle('active');
@@ -276,7 +285,7 @@ jobtag.forEach(element => {
      leftTag.appendChild(span);
     span.innerText = e.target.innerText;
     selectedTags.push(e.target.innerText);
-   
+
  checkArray(selectedTags,tag,e);
 
 
@@ -288,6 +297,13 @@ jobtag.forEach(element => {
     tag.classList.add('tag');
     console.log(selectedTags);
     singleAnim(`${getLastElement()}`,1.0);
+    }
+    if (element.classList.contains('active')) {
+      if (checkArray(selectedTags,e) == true) {
+        console.log('hej');
+      }
+    }
+   
   
   });
 });
