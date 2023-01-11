@@ -300,7 +300,7 @@ jobtag.forEach(element => {
     }
     if (element.classList.contains('active')) {
       if (checkArray(selectedTags,e) == true) {
-        console.log('hej');
+        element.classList.remove('active');
       }
     }
    
