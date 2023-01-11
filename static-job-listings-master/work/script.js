@@ -299,8 +299,9 @@ jobtag.forEach(element => {
     singleAnim(`${getLastElement()}`,1.0);
     }
     if (element.classList.contains('active')) {
-      if (checkArray(selectedTags,e) == true) {
+      if (checkArray(selectedTags,e)) {
         element.classList.remove('active');
+
       }
     }
    
