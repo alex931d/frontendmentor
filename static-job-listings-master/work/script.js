@@ -177,9 +177,18 @@ function getLastElement() {
 
 
 // check array
-function checkArray(array,text,index) { 
-return array == 
-}
+// function checkArray(array,json) { 
+//   arr = [];
+//   for (let index = 0; index < json.length; index++) {
+//     console.log(array[index]);  
+//     if (json[index].role.includes(`${array[index].toString()}`)) {
+
+//       arr.push(json[index].id)
+//     }
+//     console.log(arr);
+//     return arr;
+//   }
+// }
 
 // handle fetch errors
 function handleErrors(response) {
@@ -274,27 +283,39 @@ const removeImg = document.createElement('img');
     nav.appendChild(tag);
     tag.classList.add('tag');
     console.log(selectedTags);
-    leftTag.appendChild(removeBtn);
+    leftTag.appendChild(removeBtn); 
+    let arr = [];
     for (let index = 0; index < json.length; index++) {
 
-   if (json[index].role.includes(`${e.target.innerText}`) ||
-    json[index].languages.includes(`${e.target.innerText}`) ||
-    json[index].tools.includes(`${e.target.innerText}`)) {
+ 
       
       const cards = document.querySelectorAll('.card');
       /*remove all elements */
      cards.forEach(element => {
        element.remove();
      });
-     const matching = json.filter(checkArray(selectedTags,(e)));
-     console.log(matching);
-     matching.forEach(element => {
+
+   
+     selectedTags.forEach(element => {
+    if (json[index].role.includes(`${element}`) ||
+        json[index].languages.includes(`${element}`) ||
+        json[index].tools.includes(`${element}`)) {
+      arr.push(json[index].id) 
+
+    }
+  });
+ 
+    
+
+     arr.forEach(element => {
+  
+    //  console.log(json[index].id);
+    
         getJobListingHtml(json,index)
         CrateJobtags(json,index);
-     
    });
            animation('.card',1.7);
-     }
+
 }
 
 
@@ -309,5 +330,5 @@ const removeImg = document.createElement('img');
 
 }); 
 
-
+   
 });
