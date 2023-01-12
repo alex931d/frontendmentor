@@ -177,14 +177,23 @@ function getLastElement() {
 
 
 // check array
-function checkArray(array,el,event) {
+function checkArray(array,el,event) { 
+    console.log(event.target.innerText);
   el.classList.toggle('active');
-    const btns = document.querySelectorAll('job-tag');
-  for (let index = 0; index < btns.length; index++) {
-      if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
-        console.log("text");
-      }
-  }
+
+    const btns = document.querySelectorAll('.job-tag'); 
+    for (let index = 0; index < array.length; index++) {
+   if (array[index].includes(`${event.target.innerText}`,0) == true) {
+     return true;
+    }
+    return false;
+      
+    }
+  // for (let index = 0; index < btns.length; index++) {
+  //     if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
+  //       console.log("text");
+  //     }
+  // }
 
 
 }
@@ -239,32 +248,13 @@ for (let index = 0; index < json.length; index++) {
 animation('.card',1.7);
 const jobtag = document.querySelectorAll('.job-tag');
 jobtag.forEach(element => {
-  element.addEventListener('click',function(e) {  
-     
+  element.addEventListener('click',function(e) {
+   console.log('hej');
+   const tag = document.createElement('div');
+  
+    const textarea = document.querySelector('.job-tag-inner span');
+    element.classList.toggle('active');
 
-    for (let index = 0; index < jobtag.length; index++) {
-      if ( jobtag[index].innerText == `${e.target.innerText}`){
-           jobtag[index].classList.toggle('active');
-      }
-   
-    }
-
-
-   
-//  checkArray(selectedTags,tag,e);
-
-
-  if (!element.classList.contains('active') && selectedTags.includes(`${e.target.innerText}`,0) == true) {
-    selectedTags.splice(selectedTags.indexOf(`${e.target.innerText}`,1))
-   document.querySelectorAll('.tag').forEach(elm => {
-      if (elm.innerText == e.target.innerText) {
-        elm.remove();
-      }
-    });
-  }
-  else{
-      selectedTags.push(e.target.innerText);
-        const tag = document.createElement('div');
     const nav = document.querySelector('.left-container-navbar');
     const leftTag = document.createElement('div');  
       tag.appendChild(leftTag);
@@ -275,34 +265,20 @@ jobtag.forEach(element => {
   removeBtn.classList.add('remove-btn');
     const span = document.createElement('span'); 
      leftTag.appendChild(span);
-    span.innerText = e.target.innerText;   
-     removeImg.classList.add('remove');
+    span.innerText = e.target.innerText;
+    selectedTags.push(e.target.innerText);
+   
+ checkArray(selectedTags,tag,e);
+
+
+
+    removeImg.classList.add('remove');
     removeImg.src = "./images/icon-remove.svg";
     removeBtn.appendChild(removeImg);
     nav.appendChild(tag);
     tag.classList.add('tag');
     console.log(selectedTags);
-  
-for (let index = 0; index < json.length; index++) {
- 
-   if (json[index].role.includes(`${e.target.innerText}`) ||
-    json[index].languages.includes(`${e.target.innerText}`) ||
-    json[index].tools.includes(`${e.target.innerText}`)) {
-      const cards = document.querySelectorAll('.card');
-      /*remove all elements */
-     cards.forEach(element => {
-       element.remove();
-     });
-        getJobListingHtml(json,index)
-        CrateJobtags(json,index);
-     }
-}
-   
-  }
-
-
-
-     singleAnim("tag",1.0);
+    singleAnim(`${getLastElement()}`,1.0);
   
   });
 });
