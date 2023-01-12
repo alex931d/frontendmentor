@@ -2,6 +2,7 @@ const wrapper = document.querySelector('.card-wrapper');
 const clearBtn = document.querySelector('.clear');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function getJobListingHtml(data,index) {
   let jobItemList = `
   <div class="card">
@@ -93,6 +94,8 @@ const tagContainer = document.querySelectorAll('.tag-container');
 
 /*re */
 
+=======
+>>>>>>> parent of a8e4e39 (update)
 =======
 >>>>>>> parent of a8e4e39 (update)
   let selectedTags = [];
