@@ -177,25 +177,8 @@ function getLastElement() {
 
 
 // check array
-function checkArray(array,el,event) { 
-    console.log(event.target.innerText);
-  el.classList.toggle('active');
-
-    const btns = document.querySelectorAll('.job-tag'); 
-    for (let index = 0; index < array.length; index++) {
-   if (array[index].includes(`${event.target.innerText}`,0) == true) {
-     return true;
-    }
-    return false;
-      
-    }
-  // for (let index = 0; index < btns.length; index++) {
-  //     if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
-  //       console.log("text");
-  //     }
-  // }
-
-
+function checkArray(array,text,index) { 
+return array == 
 }
 
 // handle fetch errors
@@ -278,7 +261,9 @@ jobtag.forEach(element => {
     const leftTag = document.createElement('div');  
       tag.appendChild(leftTag);
     leftTag.classList.add('left-tag');
-jobtag.forEach(element => {
+    const removeBtn = document.createElement('div');
+const removeImg = document.createElement('img');
+
   removeBtn.classList.add('remove-btn');
     const span = document.createElement('span'); 
      leftTag.appendChild(span);
@@ -289,23 +274,30 @@ jobtag.forEach(element => {
     nav.appendChild(tag);
     tag.classList.add('tag');
     console.log(selectedTags);
-
-for (let index = 0; index < json.length; index++) {
+    leftTag.appendChild(removeBtn);
+    for (let index = 0; index < json.length; index++) {
 
    if (json[index].role.includes(`${e.target.innerText}`) ||
     json[index].languages.includes(`${e.target.innerText}`) ||
     json[index].tools.includes(`${e.target.innerText}`)) {
+      
       const cards = document.querySelectorAll('.card');
       /*remove all elements */
      cards.forEach(element => {
        element.remove();
      });
+     const matching = json.filter(checkArray(selectedTags,(e)));
+     console.log(matching);
+     matching.forEach(element => {
         getJobListingHtml(json,index)
         CrateJobtags(json,index);
+     
+   });
+           animation('.card',1.7);
      }
 }
 
-  });
+
 
 
 
