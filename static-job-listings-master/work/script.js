@@ -172,24 +172,6 @@ function getLastElement() {
 
 }
 
-
-
-
-
-// check array
-// function checkArray(array,json) { 
-//   arr = [];
-//   for (let index = 0; index < json.length; index++) {
-//     console.log(array[index]);  
-//     if (json[index].role.includes(`${array[index].toString()}`)) {
-
-//       arr.push(json[index].id)
-//     }
-//     console.log(arr);
-//     return arr;
-//   }
-// }
-
 // handle fetch errors
 function handleErrors(response) {
   if (!response.ok) {  
@@ -232,10 +214,6 @@ clearBtn.addEventListener('click',function(json) {
 for (let index = 0; index < json.length; index++) { 
   getJobListingHtml(json,index);
   CrateJobtags(json,index);
-
-
-
-    
 }
 animation('.card',1.7);
 const jobtag = document.querySelectorAll('.job-tag');
@@ -291,6 +269,7 @@ const removeImg = document.createElement('img');
       
       const cards = document.querySelectorAll('.card');
       /*remove all elements */
+
      cards.forEach(element => {
        element.remove();
      });
@@ -304,9 +283,6 @@ const removeImg = document.createElement('img');
 
     }
   });
- 
-    
-
      arr.forEach(element => {
   
     //  console.log(json[index].id);
@@ -315,20 +291,9 @@ const removeImg = document.createElement('img');
         CrateJobtags(json,index);
    });
            animation('.card',1.7);
-
 }
-
-
-
-
-
      singleAnim("tag",1.0);
-
   }
 });
-	
-
 }); 
-
-   
 });
