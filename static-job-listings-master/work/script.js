@@ -282,14 +282,21 @@ const removeImg = document.createElement('img');
       arr.push(json[index].id) 
 
     }
-  });
-     arr.forEach(element => {
-  
-    //  console.log(json[index].id);
-    
-        getJobListingHtml(json,index)
+  }); 
+// idk how make this
+     for (let i = 0; i < arr.length; i++) {
+
+       if (json[index].id.toString().includes(`${arr[i]}`)) {  
+
+      getJobListingHtml(json,index)
         CrateJobtags(json,index);
-   });
+    }
+     }
+ 
+    
+
+       
+
            animation('.card',1.7);
 }
      singleAnim("tag",1.0);
