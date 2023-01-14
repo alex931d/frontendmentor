@@ -41,8 +41,10 @@ function getJobListingHtml(data, index) {
   </div>
   `;
     wrapper.innerHTML += jobItemList;
-
+    const cards = document.querySelectorAll('.card');
+    cards[0].classList.add('highlighted');        
 }
+
 function CrateJobtags(json, index) {
 
     const RightCardContainer = document.querySelectorAll('.right-card-container');
@@ -111,7 +113,8 @@ function CrateJobtags(json, index) {
 
 }
 /*re */
-let selectedTags = [];
+let selectedTags = [];  
+let arr = [];
 let tags = {
 
     div: "tag-container",
@@ -241,12 +244,15 @@ fetch('./data.json')
                 tag[index].remove();
 
             }
+            arr.splice(0, arr.length);
             cards.forEach(element => {
 
                 element.remove();
-                getJobListingHtml(json, index);
+             
 
-            });
+            }); 
+         
+           
 
         });
         for (let index = 0; index < json.length; index = index + 1) {
@@ -256,7 +262,8 @@ fetch('./data.json')
 
         }
         animation('.card', 1.7);
-        const jobtag = document.querySelectorAll('.job-tag');
+        let jobtag = document.querySelectorAll('.job-tag');
+       
         jobtag.forEach(element => {
 
             element.addEventListener('click', function (e) {
@@ -311,7 +318,7 @@ fetch('./data.json')
                     tag.classList.add('tag');
                     console.log(selectedTags);
                     leftTag.appendChild(removeBtn);
-                    let arr = [];
+                 
                     for (var index = 0; index < json.length; index = index + 1) {
 
                         const cards = document.querySelectorAll('.card');
@@ -321,28 +328,31 @@ fetch('./data.json')
                             element.remove();
 
                         });
+                       // checking the selectedtags if json includes one of the tags then push that id at the current index to a new array
                         selectedTags.forEach(element => {
 
-                            if (json[index].role.includes(`${element}`) || json[index].languages.includes(`${element}`) || json[index].tools.includes(`${element}`)) {
-
-                                arr.push(json[index].id);
+                            if (json[index].role.includes(`${element}`) ||
+                             json[index].languages.includes(`${element}`) ||
+                              json[index].tools.includes(`${element}`)) {
+                                arr.push(json[index].id - 1);
 
                             }
                         });
-                        // idk how make this
-                        // const getid = json[index].id.toString();
-                        //       if (getid.includes(`${el}`)) {
-                        //       getJobListingHtml(json,index)
-                        //       CrateJobtags(json,index);
-                        // }
                         animation('.card', 1.7);
-
-                    }
-                    arr.forEach(el => {
-
-                        console.log(el);
-
-                    });
+                  
+                    }   
+                 
+                        for (let index = 0; index < arr.length; index++) {
+                          console.log(arr[index]);
+                            getJobListingHtml(json,arr[index]);
+                            CrateJobtags(json,arr[index]);              
+                              let jobtag = document.querySelectorAll('.job-tag');
+                             jobtag.forEach(element => {
+                                if (element.innerText == selectedTags) {
+                                 element.classList.add('active')
+                                } 
+                            });
+                        }
                     singleAnim("tag", 1.0);
 
                 }
