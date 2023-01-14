@@ -78,6 +78,8 @@ const tagContainer = document.querySelectorAll('.tag-container');
            roundedTagNew.appendChild(New);
    }
    if (json[index].featured == true) {
+ 
+     
        const roundedTagFeatured = document.createElement('div');
        roundedTagFeatured.classList.add('rounded-tag');
        roundedTagFeatured.classList.add('featured');
@@ -284,14 +286,14 @@ const removeImg = document.createElement('img');
     }
   }); 
 // idk how make this
-     for (let i = 0; i < arr.length; i++) {
-
-       if (json[index].id.toString().includes(`${arr[i]}`)) {  
-
+ arr.forEach(el=> {
+        if (json[index].id.toString().includes(`${el}`)) {  
       getJobListingHtml(json,index)
         CrateJobtags(json,index);
     }
-     }
+ });
+ 
+     
  
     
 
