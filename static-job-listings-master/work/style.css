@@ -9,7 +9,7 @@
 }
 /*support classes */
 
-@keyframes MOVE-BG {
+@-webkit-keyframes MOVE-BG {
 	from {
 		background-position: 0% 0%
 	}
@@ -19,7 +19,6 @@
 }
 
 .active .job-tag-inner{
-    background-color: var(--Desaturated-Dark-Cyan) !important;
     background-image: linear-gradient(45deg, #5ba4a4 41.67%, #69b1b3 41.67%, #69b1b3 50%, #5ba4a4 50%, #5ba4a4 91.67%, #69b1b3 91.67%, #69b1b3 100%);
     background-repeat: repeat;
     -webkit-animation-name: MOVE-BG;
@@ -319,7 +318,12 @@ main{
     transition: all 0.3s ease-in-out;
 }
 .job-tag:hover  .job-tag-inner{
-    background-color: var(--Desaturated-Dark-Cyan);
+    background-image: linear-gradient(45deg, #5ba4a4 41.67%, #69b1b3 41.67%, #69b1b3 50%, #5ba4a4 50%, #5ba4a4 91.67%, #69b1b3 91.67%, #69b1b3 100%);
+    background-repeat: repeat;
+    -webkit-animation-name: MOVE-BG;
+	-webkit-animation-duration: 100s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
 }
 .job-tag:hover  .job-tag-inner span{
     color: white;
