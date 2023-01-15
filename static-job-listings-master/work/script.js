@@ -345,7 +345,8 @@ fetch('./data.json')
                         for (let index = 0; index < arr.length; index++) {
                           console.log(arr[index]);
                             getJobListingHtml(json,arr[index]);
-                            CrateJobtags(json,arr[index]);              
+                            CrateJobtags(json,arr[index]);         
+                            animation('.card', 1.7);     
                               let jobtag = document.querySelectorAll('.job-tag');
                              jobtag.forEach(element => {
                                 if (element.innerText == selectedTags) {
