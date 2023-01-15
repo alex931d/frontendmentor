@@ -251,8 +251,8 @@ fetch('./data.json')
              
 
             }); 
-         
-           
+     
+     
 
         });
         for (let index = 0; index < json.length; index = index + 1) {
@@ -265,9 +265,13 @@ fetch('./data.json')
         let jobtag = document.querySelectorAll('.job-tag');
        
         jobtag.forEach(element => {
-
-            element.addEventListener('click', function (e) {
-
+             
+            element.addEventListener('click', click);
+          
+            function click(e) {
+                
+       
+           
                 for (let index = 0; index < jobtag.length; index = index + 1) {
 
                     if (jobtag[index].innerText == `${
@@ -343,7 +347,7 @@ fetch('./data.json')
                     }   
                  
                         for (let index = 0; index < arr.length; index++) {
-                          console.log(arr[index]);
+                          console.log(arr);
                             getJobListingHtml(json,arr[index]);
                             CrateJobtags(json,arr[index]);         
                             animation('.card', 1.7);     
@@ -358,7 +362,7 @@ fetch('./data.json')
 
                 }
 
-            });
+            }
 
         });
 
