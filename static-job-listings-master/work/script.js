@@ -221,7 +221,7 @@ function handleErrors(response) {
 
         const h1 = document.createElement('h1');
         wrapper.appendChild(h1);
-        h1.innerHTML = response.statusText;
+        h1.innerHTML = "The requested data was" +" " + response.statusText + " " + "on this server";
         h1.classList.add('error');
         throw Error(response.statusText);
 

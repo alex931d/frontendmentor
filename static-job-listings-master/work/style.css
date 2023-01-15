@@ -26,10 +26,11 @@
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-iteration-count: infinite;
 }
-
+.error{
+    color: var(--Desaturated-Dark-Cyan);
+}
 .highlighted{
-    border-left: 15px solid var(--Desaturated-Dark-Cyan);
-    z-index: 99;
+    border-left: 10px solid var(--Desaturated-Dark-Cyan);
 }
 .active .job-tag-inner span{
     color: white;
@@ -45,7 +46,7 @@
 }
 .error{
     font-size: 2rem;
-    color: var(--Very-Dark-Grayish-Cyan);
+    color: var( --Dark-Grayish-Cyan);
     text-transform: capitalize;
 }
 :where(body){
