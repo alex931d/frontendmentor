@@ -1,28 +1,38 @@
 const wrapper = document.querySelector('.card-wrapper');
 const clearBtn = document.querySelector('.clear');
+function getJobListingHtml(data, index) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function getJobListingHtml(data,index) {
-  let jobItemList = `
+    let jobItemList = `
   <div class="card">
     <div class="centerlized">
      <div class="left-card-container">
-      <img src="${data[index].logo}" alt="logo"></img>
+      <img src="${
+        data[index].logo
+    }" alt="logo"></img>
        <div class="company-content">
          <div class="top-card-container">
-         <span>${data[index].company}</span>
+         <span>${
+        data[index].company
+    }</span>
           <div class="tag-container"></div>
          </div>
         <div class="middle-card-container">
-         <a href=""#>${data[index].position}</a>
+         <a href=""#>${
+        data[index].position
+    }</a>
         </div>
         <div class="bottom-card-container">
-        <span class="postedAt">${data[index].postedAt}</span>
+        <span class="postedAt">${
+        data[index].postedAt
+    }</span>
         <span class="dot"></span>
-        <span class="contract">${data[index].contract}</span>
+        <span class="contract">${
+        data[index].contract
+    }</span>
         <span class="dot"></span>
-        <span class="location">${data[index].location}</span>
+        <span class="location">${
+        data[index].location
+    }</span>
         </div>
        </div>
      </div>
@@ -30,375 +40,330 @@ function getJobListingHtml(data,index) {
     </div>
   </div>
   `;
-  wrapper.innerHTML += jobItemList;
-}
-function CrateJobtags(json,index) {
-  const RightCardContainer = document.querySelectorAll('.right-card-container');
-
-  const jobTag = document.createElement('div');
-  RightCardContainer.forEach(element => {
-   element.appendChild(jobTag);
- });
-   const jobTagInner = document.createElement('div');
-   jobTag.appendChild(jobTagInner);
-   jobTag.classList.add('job-tag');
-   jobTagInner.classList.add('job-tag-inner');
-   const Role = document.createElement('span');
-   jobTagInner.appendChild(Role);
-   Role.innerText = json[index].role
-
-  // creating the languages tags
-
-for (let i = 0;i < json[index].languages.length; i++) {
-   const jobTag = document.createElement('div');
-   RightCardContainer.forEach(element => {
- element.appendChild(jobTag);
-});
-   const jobTagInner = document.createElement('div');
-   jobTag.appendChild(jobTagInner);
-   jobTag.classList.add('job-tag');
-
-   const role = document.createElement('span');
-   jobTagInner.appendChild(role);
-   jobTagInner.classList.add('job-tag-inner');
-   role.innerText = json[index].languages[i];
-
-   
+    wrapper.innerHTML += jobItemList;
+    const cards = document.querySelectorAll('.card');
+    cards[0].classList.add('highlighted');        
 }
 
-const tagContainer = document.querySelectorAll('.tag-container');
-   if (json[index].new == true) { 
-         const roundedTagNew = document.createElement('div');
-         roundedTagNew.classList.add('rounded-tag');
-         roundedTagNew.classList.add('new');
-           const New = document.createElement('span');
-           New.innerText = "New!";
-           tagContainer.forEach(element => {
-               element.appendChild(roundedTagNew);
-           });
-         
-           roundedTagNew.appendChild(New);
-   }
-   if (json[index].featured == true) {
-       const roundedTagFeatured = document.createElement('div');
-       roundedTagFeatured.classList.add('rounded-tag');
-       roundedTagFeatured.classList.add('featured');
-       const featured = document.createElement('span');
-       featured.innerText = "featured";
-       tagContainer.forEach(element => {
-         element.appendChild(roundedTagFeatured);
-     });
-       roundedTagFeatured.appendChild(featured);
-   }
-}
+function CrateJobtags(json, index) {
 
-/*re */
+    const RightCardContainer = document.querySelectorAll('.right-card-container');
+    const jobTag = document.createElement('div');
+    RightCardContainer.forEach(element => {
 
-=======
->>>>>>> parent of a8e4e39 (update)
-=======
->>>>>>> parent of a8e4e39 (update)
-  let selectedTags = [];
-  let tags = {
-        div: "tag-container",
-        span: "",
-        text: "",
-  }
+        element.appendChild(jobTag);
 
-
-  gsap.from("nav",{
-    scrollTrigger: {
-      trigger: "main",
-      start: "top 10%",
-      end: "top 20%",
-      markers: false,
-      scrub: 1
-    },
-    scale: 1.05, duration: 0.5
-  });
-// navbar sticky
-  window.onscroll = function() {scroll()};
-
-  const navbar = document.querySelector("nav");
-  const sticky = navbar.offsetTop;
-  
-  function scroll() {
-    if (window.pageYOffset >= sticky && selectedTags.length > 0) {
-      navbar.classList.add("sticky")
-    } else {
-      navbar.classList.remove("sticky");
-    }
-  }
-
-
-
-  function singleAnim(el) {
-    let tl = gsap.timeline({
-      defaults: {
-          duration: 1
-  
-      }
-  })
-  gsap.set(`.${el}`,{
-    scale: 0.9
-  })
-  tl.to(`.${el}`,{
-      duration: 0.5,
-      ease: `back.out(1.0)`,
-      scale: 1
-  })
-  }
-
-// gsap animation stagger
-function animation(element,time) {
-    gsap.set(`${element}`, {
-        autoAlpha: 0,
-        transformOrigin: "50% 50%",
-        scale: 0.9
-      })
-      
-      
-      let TL = gsap.timeline({ 
-          defaults: { 
-           stagger: { amount: 1.0 },
-           autoAlpha: 1,
-           scale: 1,
-           ease: `back.out(${time})`,
-          }
-        })
-    TL.to(`${element}`,{})
-}
-
-// get last element and then slice and return it
-function getLastElement() {
-  const last = Array.from(
-    document.querySelectorAll('.tag')
-  ).pop();  
-  return last.className.slice(7,10);
-
-}
-
-
-
-// clear btn logic
-
-clearBtn.addEventListener('click',function() {
- selectedTags.splice(0,selectedTags.length);
- const tag = document.querySelectorAll('.tag');
- const cards = document.querySelectorAll('.card');
- for (let index = 0; index < tag.length; index++) {
-    tag[index].remove();
-
-   }
-cards.forEach(element => {
-  element.remove();
-  makeElements(json);
-});
-});
-
-// check array
-function checkArray(array,el,event) { 
-    console.log(event.target.innerText);
-  el.classList.toggle('active');
-
-    const btns = document.querySelectorAll('.job-tag'); 
-    for (let index = 0; index < array.length; index++) {
-   if (array[index].includes(`${event.target.innerText}`,0) == true) {
-     return true;
-    }
-    return false;
-      
-    }
-  // for (let index = 0; index < btns.length; index++) {
-  //     if (btns[index].classList.contains('active') && array.includes(`${event.target.innerText}`,0)) {
-  //       console.log("text");
-  //     }
-  // }
-
-
-}
-
-// handle fetch errors
-function handleErrors(response) {
-  if (!response.ok) {  
-     const h1 = document.createElement('h1');
-     wrapper.appendChild(h1);
-      h1.innerHTML = response.statusText;
-      h1.classList.add('error');
-      throw Error(response.statusText);
-    
-  }
-  return response;
-}
-
-// fetch and then run make elements function
-fetch('./data.json')
-.then(handleErrors)
-.then((response) => response.json())
-
-.then(function makeElements(json) {
-    
-
-for (let index = 0; index < json.length; index++) {
-    console.log(json[index]);
-    const card = document.createElement('div');
-    card.classList.add('card');
-    wrapper.appendChild(card);
-  
-    const centerlized = document.createElement('div');
-      card.appendChild(centerlized);
-    centerlized.classList.add('centerlized');
-    const LeftCardContainer = document.createElement('div');
-    centerlized.appendChild(LeftCardContainer);
-    LeftCardContainer.classList.add('left-card-container');
-    const RightCardContainer = document.createElement('div');
-    RightCardContainer.classList.add('right-card-container');
-    centerlized.appendChild(RightCardContainer);
-    const logo = document.createElement('img');
-    LeftCardContainer.appendChild(logo);
-    logo.src = json[index].logo;
-    const companyContent = document.createElement('div');
-    LeftCardContainer.appendChild(companyContent);
-    companyContent.classList.add('company-content');
-
-    const topCardContainer = document.createElement('div');
-    companyContent.appendChild(topCardContainer);
-    topCardContainer.classList.add('top-card-container');
-    const tagContainer = document.createElement('div');
-    const company = document.createElement('span');
-    topCardContainer.appendChild(company);
- 
-    const companytext = document.createTextNode(json[index].company);  
-     company.appendChild(companytext);
-     topCardContainer.appendChild(tagContainer);
-     tagContainer.classList.add('tag-container');
-     
-   const middleCardContainer = document.createElement('div');
-   companyContent.appendChild(middleCardContainer);
-   middleCardContainer.classList.add('middle-card-container');
-   const position = document.createElement('a');
-   middleCardContainer.appendChild(position);
-   position.innerText = json[index].position;
-   const bottomCardContainer = document.createElement('div'); 
-   bottomCardContainer.classList.add('bottom-card-container');
-   companyContent.appendChild(bottomCardContainer);
-   const postedAt = document.createElement('span');
-   const contract = document.createElement('span');
-
-
-
-   const location = document.createElement('span');
-   bottomCardContainer.appendChild(postedAt);
-   for (let index = 0; index < 1; index++) {
-    const dot = document.createElement('span');
-    bottomCardContainer.appendChild(dot);
-    dot.classList.add('dot');
-     
-    }
-   bottomCardContainer.appendChild(contract);
-   for (let index = 0; index < 1; index++) {
-    const dot = document.createElement('span');
-    bottomCardContainer.appendChild(dot);
-    dot.classList.add('dot');
-     
-    }
-   bottomCardContainer.appendChild(location);
-   location.classList.add('location');
-   location.innerText = json[index].location;
-   contract.classList.add('contract');
-   contract.innerText = json[index].contract;
-   postedAt.classList.add('postedAt');
-   postedAt.innerText = json[index].postedAt;
-   const jobTag = document.createElement('div');
-    RightCardContainer.appendChild(jobTag);
+    });
     const jobTagInner = document.createElement('div');
     jobTag.appendChild(jobTagInner);
     jobTag.classList.add('job-tag');
     jobTagInner.classList.add('job-tag-inner');
     const Role = document.createElement('span');
     jobTagInner.appendChild(Role);
-    Role.innerText = json[index].role
+    Role.innerText = json[index].role;
+    // creating the languages tags
+    for (let i = 0; i < json[index].languages.length; i = i + 1) {
 
-   // creating the languages tags
- for (let i = 0;i < json[index].languages.length; i++) {
-    const jobTag = document.createElement('div');
-    RightCardContainer.appendChild(jobTag);
-    const jobTagInner = document.createElement('div');
-    jobTag.appendChild(jobTagInner);
-    jobTag.classList.add('job-tag');
+        const jobTag = document.createElement('div');
+        RightCardContainer.forEach(element => {
 
-    const role = document.createElement('span');
-    jobTagInner.appendChild(role);
-    jobTagInner.classList.add('job-tag-inner');
-    role.innerText = json[index].languages[i];
+            element.appendChild(jobTag);
 
-    
- }
+        });
+        const jobTagInner = document.createElement('div');
+        jobTag.appendChild(jobTagInner);
+        jobTag.classList.add('job-tag');
+        const role = document.createElement('span');
+        jobTagInner.appendChild(role);
+        jobTagInner.classList.add('job-tag-inner');
+        role.innerText = json[index].languages[i];
 
+    }
+    const tagContainer = document.querySelectorAll('.tag-container');
+    if (json[index].new == true) {
 
-    if (json[index].new == true) { 
-          const roundedTagNew = document.createElement('div');
-          roundedTagNew.classList.add('rounded-tag');
-          roundedTagNew.classList.add('new');
-            const New = document.createElement('span');
-            New.innerText = "New!";
-            tagContainer.appendChild(roundedTagNew);
-            roundedTagNew.appendChild(New);
+        const roundedTagNew = document.createElement('div');
+        roundedTagNew.classList.add('rounded-tag');
+        roundedTagNew.classList.add('new');
+        const New = document.createElement('span');
+        New.innerText = "New!";
+        tagContainer.forEach(element => {
+
+            element.appendChild(roundedTagNew);
+
+        });
+        roundedTagNew.appendChild(New);
+
     }
     if (json[index].featured == true) {
+
         const roundedTagFeatured = document.createElement('div');
         roundedTagFeatured.classList.add('rounded-tag');
         roundedTagFeatured.classList.add('featured');
         const featured = document.createElement('span');
         featured.innerText = "featured";
-        tagContainer.appendChild(roundedTagFeatured);
+        tagContainer.forEach(element => {
+
+            element.appendChild(roundedTagFeatured);
+
+        });
         roundedTagFeatured.appendChild(featured);
+
     }
 
-
-    
 }
-animation('.card',1.7);
-const jobtag = document.querySelectorAll('.job-tag');
-jobtag.forEach(element => {
-  element.addEventListener('click',function(e) {
-   console.log('hej');
-   const tag = document.createElement('div');
-  
-    const textarea = document.querySelector('.job-tag-inner span');
-    element.classList.toggle('active');
+/*re */
+let selectedTags = [];  
+let arr = [];
+let tags = {
 
-    const nav = document.querySelector('.left-container-navbar');
+    div: "tag-container",
+    span: "",
+    text: ""
 
+};
+gsap.from("nav", {
 
-    const leftTag = document.createElement('div');  
-      tag.appendChild(leftTag);
-    leftTag.classList.add('left-tag');
-    const removeBtn = document.createElement('div');
-    const removeImg = document.createElement('img');
-  tag.appendChild(removeBtn);
-  removeBtn.classList.add('remove-btn');
-    const span = document.createElement('span'); 
-     leftTag.appendChild(span);
-    span.innerText = e.target.innerText;
-    selectedTags.push(e.target.innerText);
-   
- checkArray(selectedTags,tag,e);
+    scrollTrigger: {
 
+        trigger: "main",
+        start: "top 10%",
+        end: "top 20%",
+        markers: false,
+        scrub: 1
 
+    },
+    scale: 1.05,
+    duration: 0.5
 
-    removeImg.classList.add('remove');
-    removeImg.src = "./images/icon-remove.svg";
-    removeBtn.appendChild(removeImg);
-    nav.appendChild(tag);
-    tag.classList.add('tag');
-    console.log(selectedTags);
-    singleAnim(`${getLastElement()}`,1.0);
-  
-  });
 });
+// navbar sticky
+window.onscroll = function () {
 
-}); 
+    scroll();
 
+};
+const navbar = document.querySelector("nav");
+const sticky = navbar.offsetTop;
+function scroll() {
 
+    if (window.pageYOffset >= sticky && selectedTags.length > 0) {
 
+        navbar.classList.add("sticky");
+
+    } else {
+
+        navbar.classList.remove("sticky");
+
+    }
+
+}
+function singleAnim(el) {
+
+    let tl = gsap.timeline({
+
+        defaults: {
+
+            duration: 1
+
+        }
+    });
+    gsap.set(`.${el}`, {scale: 0.9});
+    tl.to(`.${el}`, {
+
+        duration: 0.5,
+        ease: `back.out(1.0)`,
+        scale: 1
+
+    });
+
+}
+// gsap animation stagger
+function animation(element, time) {
+
+    gsap.set(`${element}`, {
+
+        autoAlpha: 0,
+        transformOrigin: "50% 50%",
+        scale: 0.9
+
+    });
+    let TL = gsap.timeline({
+
+        defaults: {
+
+            stagger: {
+
+                amount: 1.0
+
+            },
+            autoAlpha: 1,
+            scale: 1,
+            ease: `back.out(${time})`
+
+        }
+
+    });
+    TL.to(`${element}`, {});
+
+}
+// get last element and then slice and return it
+function getLastElement() {
+
+    const last = Array.from(document.querySelectorAll('.tag')).pop();
+    return last.className.slice(7, 10);
+
+}
+// handle fetch errors
+function handleErrors(response) {
+
+    if (! response.ok) {
+
+        const h1 = document.createElement('h1');
+        wrapper.appendChild(h1);
+        h1.innerHTML = "The requested data was" +" " + response.statusText + " " + "on this server";
+        h1.classList.add('error');
+        throw Error(response.statusText);
+
+    }
+    return response;
+
+}
+// fetch and then run make elements function
+fetch('./data.json')
+    .then(handleErrors)
+    .then((response) => response.json())
+    .then(function makeElements(json) { // clear btn logic
+        clearBtn.addEventListener('click', function (json) {
+
+            selectedTags.splice(0, selectedTags.length);
+            const tag = document.querySelectorAll('.tag');
+            const cards = document.querySelectorAll('.card');
+            for (let index = 0; index < tag.length; index = index + 1) {
+
+                tag[index].remove();
+
+            }
+            arr.splice(0, arr.length);
+            cards.forEach(element => {
+
+                element.remove();
+             
+
+            }); 
+     
+     
+
+        });
+        for (let index = 0; index < json.length; index = index + 1) {
+
+            getJobListingHtml(json, index);
+            CrateJobtags(json, index);
+
+        }
+        animation('.card', 1.7);
+        let jobtag = document.querySelectorAll('.job-tag');
+       
+        jobtag.forEach(element => {
+             
+            element.addEventListener('click', click);
+          
+            function click(e) {
+                
+       
+           
+                for (let index = 0; index < jobtag.length; index = index + 1) {
+
+                    if (jobtag[index].innerText == `${
+                        e.target.innerText
+                    }`) {
+
+                        jobtag[index].classList.toggle('active');
+
+                    }
+
+                }
+                // checkArray(selectedTags,tag,e);
+                if (!element.classList.contains('active') && selectedTags.includes(`${
+                    e.target.innerText
+                }`, 0) == true) {
+
+                    selectedTags.splice(selectedTags.indexOf(`${
+                        e.target.innerText
+                    }`, 1));
+                    document.querySelectorAll('.tag').forEach(elm => {
+
+                        if (elm.innerText == e.target.innerText) {
+
+                            elm.remove();
+
+                        }
+
+                    });
+
+                } else {
+
+                    selectedTags.push(e.target.innerText);
+                    const tag = document.createElement('div');
+                    const nav = document.querySelector('.left-container-navbar');
+                    const leftTag = document.createElement('div');
+                    tag.appendChild(leftTag);
+                    leftTag.classList.add('left-tag');
+                    const removeBtn = document.createElement('div');
+                    const removeImg = document.createElement('img');
+                    removeBtn.classList.add('remove-btn');
+                    const span = document.createElement('span');
+                    leftTag.appendChild(span);
+                    span.innerText = e.target.innerText;
+                    removeImg.classList.add('remove');
+                    removeImg.src = "./images/icon-remove.svg";
+                    removeBtn.appendChild(removeImg);
+                    nav.appendChild(tag);
+                    tag.classList.add('tag');
+                    console.log(selectedTags);
+                    leftTag.appendChild(removeBtn);
+                 
+                    for (var index = 0; index < json.length; index = index + 1) {
+
+                        const cards = document.querySelectorAll('.card');
+                        /*remove all elements */
+                        cards.forEach(element => {
+
+                            element.remove();
+
+                        });
+                       // checking the selectedtags if json includes one of the tags then push that id at the current index to a new array
+                        selectedTags.forEach(element => {
+
+                            if (json[index].role.includes(`${element}`) ||
+                             json[index].languages.includes(`${element}`) ||
+                              json[index].tools.includes(`${element}`)) {
+                                arr.push(json[index].id - 1);
+
+                            }
+                        });
+                        animation('.card', 1.7);
+                  
+                    }   
+                 
+                        for (let index = 0; index < arr.length; index++) {
+                          console.log(arr);
+                            getJobListingHtml(json,arr[index]);
+                            CrateJobtags(json,arr[index]);         
+                            animation('.card', 1.7);     
+                              let jobtag = document.querySelectorAll('.job-tag');
+                             jobtag.forEach(element => {
+                                if (element.innerText == selectedTags) {
+                                 element.classList.add('active')
+                                } 
+                            });
+                        }
+                    singleAnim("tag", 1.0);
+
+                }
+
+            }
+
+        });
+
+    });
