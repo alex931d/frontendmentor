@@ -185,7 +185,7 @@ function animation(element, time) {
 
         autoAlpha: 0,
         transformOrigin: "50% 50%",
-        scale: 0.9
+        x: 0
 
     });
     let TL = gsap.timeline({
@@ -198,7 +198,7 @@ function animation(element, time) {
 
             },
             autoAlpha: 1,
-            scale: 1,
+            x: 300, 
             ease: `back.out(${time})`
 
         }
