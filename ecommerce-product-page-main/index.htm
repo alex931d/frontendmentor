@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product webpage</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>      
+      <div class="sub-menu">
+                            <ul>
+                                <li><a href="#">collections</a></li>
+                                <li><a href="#">men</a></li>
+                                <li><a href="#">woman</a></li>
+                                <li><a href="#">about</a></li>
+                                <li><a href="#">contact</a></li>
+                             </ul>
+                        </div>  
+    <div class="overlayer"></div>
+    <dialog class="lightbox">
+        <div class="image-container">
+            <div class="arrow-left arrow"><img src="./images/icon-previous.svg" alt="back"></div>
+            <img class="lightbox-image" src="">
+            <div class="arrow-right arrow"><img src="./images/icon-next.svg" alt="next"></div>
+        </div>
+
+        <div class="product-preview-thumbs">
+            <img class="preview" src="./images/image-product-1-thumbnail.jpg" alt="white-sneaker">
+            <img class="preview" src="./images/image-product-2-thumbnail.jpg" alt="white-sneaker">
+            <img class="preview" src="./images/image-product-3-thumbnail.jpg" alt="white-sneaker">
+            <img class="preview" src="./images/image-product-4-thumbnail.jpg" alt="white-sneaker">
+        </div>
+    </dialog>
+    <header>
+        <div class="menu-container">
+             <nav class="center">
+                <div class="menu-first">
+                    <div class="menu">
+                        <span class="burger">☰</span>
+                   
+                    </div>
+                     <img alt="logo" src="./images/logo.svg"> 
+                     <ul class="under">
+                        <li><a href="#">collections</a></li>
+                        <li><a href="#">men</a></li>
+                        <li><a href="#">woman</a></li>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">contact</a></li>
+                     </ul>
+                </div>
+                <div class="menu-last">
+                    <div class="cart-div">
+                        <img class="cart" src="./images/icon-cart.svg" alt="cart">
+                             <span class="items">0</span>
+                             <div class="cart-menu" id="cart-1">
+                                 <div class="cart-menu-header">
+                                    <span>Cart</span>
+                                 </div>
+                                 <div class="cart-menu-content">
+                                       <!-- items here -->
+                                    <a class="checkout">Checkout</a>
+                                 </div>
+                             </div>
+                    </div>
+               
+                    <div class="profile"></div>
+                </div>
+             </nav>
+        </div>
+    </header>
+    <main>
+        
+         <div class="product-section center">
+               <div class="product-preview-container">
+                <div class="cart-menu" id="cart-2">
+                    <div class="cart-menu-header">
+                       <span>Cart</span>
+                    </div>
+                    <div class="cart-menu-content">
+                         <!-- items here -->
+                       <a class="checkout">Checkout</a>
+                    </div>
+                </div>
+                
+                     <div class="product-preview">
+                        <div class="image-container">
+                        <div class="arrow-left-main arrow-left arrow"><img src="./images/icon-previous.svg" alt="back"></div>
+                        <img class="large" src="./images/image-product-1.jpg" alt="white-sneaker">
+                        <div class="arrow-right-main arrow-right arrow"><img src="./images/icon-next.svg" alt="next"></div>
+                          </div>
+                          <div class="product-preview-thumbs">
+                              <img class="preview" src="./images/image-product-1-thumbnail.jpg" alt="white-sneaker">
+                              <img class="preview" src="./images/image-product-2-thumbnail.jpg" alt="white-sneaker">
+                              <img class="preview" src="./images/image-product-3-thumbnail.jpg" alt="white-sneaker">
+                              <img class="preview" src="./images/image-product-4-thumbnail.jpg" alt="white-sneaker">
+                          </div>
+                     </div>
+          
+               </div>
+               <div class="product-content">
+                <div class="product-content-inner">
+                    <span class="company-span">sneaker company</span>
+                    <h1>fall limited edition sneakers</h1>
+                    <p>these low-profile sneakers are your perfect casual wear companion. featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+                    <div class="price-container">
+                         <div class="price-top">
+                            <span class="tag">$125.00</span>
+                            <div class="price-off">
+                                <span>50%</span>
+                            </div>
+                         </div>
+                         <small>$250.00</small>
+                    </div>
+                    <div class="add-to-cart-container">
+                         <div class="number-of-items-wrapper">
+                             <span class="data-tag minus">-</span>
+                             <span class="item-count">0</span>
+                             <span class="data-tag plus">+</span>
+                         </div>
+                         <a class="add-to-cart"><img src="./images/icon-cart.svg" alt="cart">Add to cart</a>
+                    </div>
+               </div>
+            </div>
+         </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
